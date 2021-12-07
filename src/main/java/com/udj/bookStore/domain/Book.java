@@ -21,8 +21,7 @@ public class Book implements Serializable {
     public Book() {
     }
 
-    public Book(Integer id, String title, String authorName, String text, Category category) {
-        this.id = id;
+    public Book(String title, String authorName, String text, Category category) {
         this.title = title;
         this.authorName = authorName;
         this.text = text;
