@@ -1,13 +1,21 @@
 package com.udj.bookStore.domain;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Book {
+@Entity
+public class Book implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;
     private String authorName;
     private String text;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
     private Category category;
 
     public Book() {

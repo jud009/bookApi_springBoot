@@ -1,15 +1,21 @@
 package com.udj.bookStore.domain;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Category {
+@Entity
+public class Category implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String description;
 
+    @OneToMany(mappedBy = "category")
     private List<Book> books = new ArrayList<>();
 
     public Category() {
